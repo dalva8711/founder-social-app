@@ -1,14 +1,16 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import ScreenWrapper from '@/components/ScreenWrapper'
-import { StatusBar } from 'expo-status-bar'
-import { wp , hp } from '@/helpers/common'
-import { Image } from 'expo-image'
-import { theme } from '@/constants/theme'
 import Button from '@/components/Button'
+import ScreenWrapper from '@/components/ScreenWrapper'
+import { hp, wp } from '@/helpers/common'
+import { Image } from 'expo-image'
+import { useRouter } from 'expo-router'
+import { StatusBar } from 'expo-status-bar'
+import React from 'react'
+import { Pressable, StyleSheet, Text, View } from 'react-native'
 
 export default function Welcome() {
-  return (
+    const router = useRouter();
+  
+    return (
     // TODO: Edit the background color
     <ScreenWrapper bg='white'> 
         <StatusBar style='dark' />
@@ -29,12 +31,12 @@ export default function Welcome() {
                 <Button 
                     title='Get Started'
                     buttonStyle={{marginHorizontal: wp(3)}}
-                    onPress={()=>{}}
+                    onPress={()=>{router.push('/signUp')}}
                 />
                 {/* TODO: Add the login button for already have an account */}
                 <View style={styles.footerContainer}>
                     <Text style={styles.footerText}>Already have an account?</Text>
-                    <Pressable>
+                    <Pressable onPress={()=>{router.push('/login')}}>
                         <Text style={styles.footerLogIn}>Login</Text>
                     </Pressable>
                 </View>
