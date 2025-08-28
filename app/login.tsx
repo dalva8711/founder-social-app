@@ -1,3 +1,4 @@
+import BackButton from '@/components/BackButton'
 import ScreenWrapper from '@/components/ScreenWrapper'
 import { hp, wp } from '@/helpers/common'
 import { useRouter } from 'expo-router'
@@ -14,6 +15,7 @@ export default function Login() {
             <View style={styles.container}>
                 
                 {/* Back Button */}
+                <BackButton onPress={()=>{router.back()}} />
 
                 {/* Welcome Back Text */}
                 <View style={{gap: 10}}>
